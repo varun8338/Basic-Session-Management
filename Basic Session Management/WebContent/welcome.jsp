@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+	pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,7 +8,7 @@
 </head>
 <body>
 
-<%
+	<%
 	String username = null, sessionId = null;
 	
 	Cookie cookies[] = request.getCookies();//Cookies are always recieved in arrays
@@ -33,8 +33,18 @@
 		response.sendRedirect("Login.jsp");
 	}
 %>
+	<form action="<%=request.getContextPath() %>/LogOutServlet" method = "post">
+	
+	Welcome <%=username %>
+	<br/>
+	Your Session ID is <%=sessionId %>
+	<br/>
+	<input type = "hidden" name = "action" value = "destroy">
+	<input type = "submit" value = "Logout">
+	
+	
+	</form>
 
-
-Welcome <%=username %> 
+	
 </body>
 </html>
